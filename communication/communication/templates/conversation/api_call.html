@@ -1,0 +1,47 @@
+<!-- angular file to make the api call
+assumption of initializing angular app and controllers -->
+
+<!-- api call to get the recent conversation/ chat of all the users -->
+$http({
+    method: 'GET',
+    url: '/conversation/get_recent_conversation'
+}).then(function successCallback(response) {
+    if(response.data != "no conversations") {
+        <!-- parse response.data to get all the field values of conversation object -->
+        }
+    else {
+        alert("No Conversations");
+    }
+}
+    
+<!-- api call to get the recent conversation/ chat of all the users -->
+$http({
+    method: 'POST',
+    url: '/conversation/send_message_other_user',
+    data: {
+        to_username: [some_username_in_the_auth_user_model],
+        message: [some_message]
+    }
+}).then(function successCallback(response) {
+        alert(response.data);
+    }
+    
+<!-- api call to get the recent conversation/ chat between two users -->
+$http({
+    method: 'POST',
+    url: '/conversation/get_conversation_between_user'
+    data: {
+        user_a: [some_username_in_the_auth_user_model],
+        user_b: [some_username_in_the_auth_user_model]
+    }
+}).then(function successCallback(response) {
+    if(response.data != "no conversations") {
+        <!-- parse response.data to get all the field values of conversation object -->
+        }
+    else {
+        alert("No Conversations");
+    }
+}
+    
+
+    
